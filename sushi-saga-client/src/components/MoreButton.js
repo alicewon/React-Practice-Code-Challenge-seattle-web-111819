@@ -1,8 +1,9 @@
 import React from 'react'
 
 const MoreButton = (props) => {
-    return <button onClick={/* Fill me in! */ null}>
-            More sushi!
+
+    return <button onClick={ () => props.moreSushi(props.sushi)}>
+      More Sushi!!
           </button>
 }
 

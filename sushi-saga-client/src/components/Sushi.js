@@ -5,12 +5,14 @@ const Sushi = (props) => {
     <div className="sushi">
       <div className="plate" 
            onClick={ () => props.eatSushi(props.sushi)}>
+             
              { props.sushi.isEaten ? (
              <img src=""/>
              ) : (
              <img src={props.sushi.img_url} width="100%" />
              )
           }
+          
       </div>
       <h4 className="sushi-details">
         {props.sushi.name} - ${props.sushi.price}
