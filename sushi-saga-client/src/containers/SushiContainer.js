@@ -6,7 +6,7 @@ const SushiContainer = (props) => {
 
 const everySushi = () => {
   return props.allSushis.slice(props.sushiCounter, props.sushiCounter+4).map((sushi, index) => {
-    return <Sushi eatSushi={props.eatSushi} sushi={sushi} key={index} blankPlate={this.blankPlate}/>
+    return <Sushi eatSushi={props.eatSushi} sushi={sushi} key={index} blankPlate={this.blankPlate} />
   })
 }
 

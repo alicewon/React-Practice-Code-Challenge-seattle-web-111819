@@ -12,7 +12,8 @@ class App extends Component {
     this.state = {
       sushi: [],
       counter: 0,
-      emptyPlates: []
+      emptyPlates: [],
+      budget: 100
     }
   }
 
@@ -32,9 +33,7 @@ allSushi = (sushis) => {
       )
     )
   })
-
 }
-
 
 eatSushi= (clickedSushi) => {
   console.log("i wanna add a plate")
@@ -52,7 +51,17 @@ eatSushi= (clickedSushi) => {
     emptyPlates: plates
   })
 
-}
+  let oldBudget= this.state.budget
+  let remaining = oldBudget - clickedSushi.price
+    if (remaining > 0) {
+    this.setState({
+      budget: remaining})
+    } else {
+      this.setState({
+        budget: 0
+      })
+  }
+  }
 
 moreSushi=(getMoreSushi) => {
   console.log("More Sushi Click Fired")
@@ -70,7 +79,7 @@ moreSushi=(getMoreSushi) => {
       <div className="app">
         {console.log(this.state)}
         <SushiContainer eatSushi={this.eatSushi} allSushis={this.state.sushi} moreSushi={this.moreSushi} sushiCounter={this.state.counter} blankPlate={this.blankPlate}/>
-        <Table emptyPlates={this.state.emptyPlates}/>
+        <Table emptyPlates={this.state.emptyPlates} budget={this.state.budget} eatSushi={this.eatSushi}/>
       </div>
     );
   }
